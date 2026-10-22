@@ -1,0 +1,80 @@
+docs/ARCHITECTURE.md:3: trailing whitespace.
+[32m+[m[32m**Date:** October 22, 2026[m[41m  [m
+docs/ARCHITECTURE.md:4: trailing whitespace.
+[32m+[m[32m**Auditor / Architect:** Senior Software Architect[m[41m  [m
+docs/ARCHITECTURE.md:34: trailing whitespace.
+[32m+[m[41m        [m
+docs/ARCHITECTURE.md:48: trailing whitespace.
+[32m+[m[41m        [m
+docs/ARCHITECTURE.md:201: trailing whitespace.
+[32m+[m[41m        [m
+docs/ARCHITECTURE.md:208: trailing whitespace.
+[32m+[m[41m        [m
+docs/ARCHITECTURE.md:231: trailing whitespace.
+[32m+[m[41m    [m
+docs/ARCHITECTURE.md:236: trailing whitespace.
+[32m+[m[41m    [m
+docs/FEATURE_MATRIX.md:3: trailing whitespace.
+[32m+[m[32m**Date:** October 22, 2026[m[41m  [m
+docs/FEATURE_MATRIX.md:4: trailing whitespace.
+[32m+[m[32m**Auditor:** Senior Software Architect[m[41m  [m
+docs/FRIEND_HANDOFF.md:3: trailing whitespace.
+[32m+[m[32m**Welcome to the Nestara AI codebase!**[m[41m  [m
+docs/FRIEND_HANDOFF.md:11: trailing whitespace.
+[32m+[m[32m**Nestara AI — Intelligent Property & Rental Management System**[m[41m  [m
+docs/FRIEND_HANDOFF.md:254: trailing whitespace.
+[32m+[m[32m👉 **Implement Task 1: User Authentication & Roles**[m[41m  [m
+docs/IMPLEMENTATION_ROADMAP.md:3: trailing whitespace.
+[32m+[m[32m**Date:** October 22, 2026[m[41m  [m
+docs/IMPLEMENTATION_ROADMAP.md:4: trailing whitespace.
+[32m+[m[32m**Auditor / Lead Engineer:** Senior Software Architect[m[41m  [m
+docs/PROJECT_STATUS.md:3: trailing whitespace.
+[32m+[m[32m**Document Authority:** Authoritative record of project progress[m[41m  [m
+docs/PROJECT_STATUS.md:4: trailing whitespace.
+[32m+[m[32m**Last Updated:** October 22, 2026[m[41m  [m
+docs/PROJECT_STATUS.md:5: trailing whitespace.
+[32m+[m[32m**Auditor / Lead Engineer:** Senior Software Architect[m[41m  [m
+docs/PROJECT_STATUS.md:6: trailing whitespace.
+[32m+[m[32m**Primary Repository:** `OpenProperty` (`C:\Projects\Nestara AI\OpenProperty`)[m[41m  [m
+docs/PROJECT_STATUS.md:7: trailing whitespace.
+[32m+[m[32m**External Archive:** `C:\Projects\Nestara-AI-Reference-Archive`[m[41m  [m
+docs/PROJECT_STATUS.md:13: trailing whitespace.
+[32m+[m[32m**Nestara AI — Intelligent Property & Rental Management System**[m[41m  [m
+docs/PROJECT_STATUS.md:40: trailing whitespace.
+[32m+[m[32m2. **Typecheck Validation:** Executed `pnpm typecheck` (`tsc --noEmit`) in `OpenProperty/`.[m[41m  [m
+docs/PROJECT_STATUS.md:42: trailing whitespace.
+[32m+[m[32m3. **Build Validation:** Executed `pnpm build` (`vite build`) in `OpenProperty/`.[m[41m  [m
+docs/PROJECT_STATUS.md:44: trailing whitespace.
+[32m+[m[32m4. **Database Migration Verification:** Executed `pnpm db:migrate` (`wrangler d1 execute open-property-db --local --file=src/server/schema.sql`).[m[41m  [m
+docs/PROJECT_STATUS.md:125: trailing whitespace.
+[32m+[m[32m**Task T2.1 & T2.2: Implement Authentication & Users Schema in OpenProperty**[m[41m  [m
+docs/REPOSITORY_AUDIT.md:3: trailing whitespace.
+[32m+[m[32m**Date of Audit:** October 22, 2026[m[41m  [m
+docs/REPOSITORY_AUDIT.md:4: trailing whitespace.
+[32m+[m[32m**Auditor:** Senior Software Architect & Repository Auditor[m[41m  [m
+docs/REPOSITORY_AUDIT.md:5: trailing whitespace.
+[32m+[m[32m**Primary Product Git Repository:** `OpenProperty` (`C:\Projects\Nestara AI\OpenProperty`)[m[41m  [m
+docs/REPOSITORY_AUDIT.md:6: trailing whitespace.
+[32m+[m[32m**External Reference Archive:** `C:\Projects\Nestara-AI-Reference-Archive`[m[41m  [m
+docs/SETUP_AND_RUN.md:3: trailing whitespace.
+[32m+[m[32m**Environment:** Windows (PowerShell)[m[41m  [m
+docs/SETUP_AND_RUN.md:4: trailing whitespace.
+[32m+[m[32m**Verified On:** October 22, 2026[m[41m  [m
+docs/SETUP_AND_RUN.md:5: trailing whitespace.
+[32m+[m[32m**Primary Target Directory:** `C:\Projects\Nestara AI\OpenProperty`[m[41m  [m
+docs/SETUP_AND_RUN.md:42: trailing whitespace.
+[32m+[m[32m> Always execute commands from `C:\Projects\Nestara AI\OpenProperty` (or your cloned repository root).[m[41m  [m
+docs/SETUP_AND_RUN.md:149: trailing whitespace.
+[32m+[m[32m**Symptom:** `Error: listen EADDRINUSE: address already in use :::8787`[m[41m  [m
+docs/SETUP_AND_RUN.md:156: trailing whitespace.
+[32m+[m[32m**Symptom:** Inconsistent database state or migration errors.[m[41m  [m
+docs/SETUP_AND_RUN.md:164: trailing whitespace.
+[32m+[m[32m**Symptom:** `pnpm : File cannot be loaded because running scripts is disabled on this system.`[m[41m  [m
+docs/UPSTREAM_ATTRIBUTION.md:3: trailing whitespace.
+[32m+[m[32m**Date:** October 22, 2026[m[41m  [m
+docs/UPSTREAM_ATTRIBUTION.md:4: trailing whitespace.
+[32m+[m[32m**Auditor:** Senior Software Architect & Repository Auditor[m[41m  [m
+docs/UPSTREAM_ATTRIBUTION.md:5: trailing whitespace.
+[32m+[m[32m**Primary Product Repository:** `OpenProperty` (`C:\Projects\Nestara AI\OpenProperty`)[m[41m  [m
+docs/UPSTREAM_ATTRIBUTION.md:6: trailing whitespace.
+[32m+[m[32m**Reference Archive Location:** `C:\Projects\Nestara-AI-Reference-Archive`[m[41m  [m

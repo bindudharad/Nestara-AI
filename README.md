@@ -1,115 +1,147 @@
-<img src="readme-banner.png" alt="OpenProperty preview" width="100%" />
+# Nestara AI — Intelligent Property & Rental Management System
 
-# OpenProperty
+> **Find Better. Manage Smarter. Live Easier.**
 
-[![Deploy with Clawnify](https://app.clawnify.com/deploy-button.svg)](https://app.clawnify.com/deploy?repo=clawnify/OpenProperty)
+Nestara AI is an integrated property and rental management platform designed to unify back-office portfolio operations with public tenant discovery, automated AI recommendations, and intelligent maintenance triage.
 
-Open-source **property management software** — a self-hosted, cloud-based alternative to TenantCloud, AppFolio, Buildium, and Propertyware for landlords, small property managers, and apartment / multi-family back-office teams.
+Built on an edge-native serverless architecture, Nestara AI offers landlords, property managers, and tenants a fast, modern, and self-hostable system without expensive enterprise SaaS subscriptions or heavy infrastructure overhead.
 
-Rental property management with everything you need to run a portfolio: properties and units, tenants and leases, rent collection and a ledger, maintenance work orders, and a vendor directory.
+---
 
-> Built on the [Clawnify](https://clawnify.com) template format. Deploy your own copy in minutes, customize freely, own the data.
+## 1. Key Capabilities
 
-## Features
+### 🏢 Portfolio & Operations (Operational Baseline)
+- **Properties & Units:** Multi-building and multi-unit portfolio tracking (single-family, multi-family, condo, townhouse, commercial) with occupancy status, unit dimensions, market rent, and color-coded portfolio tags.
+- **Tenants & Leases:** Complete tenant profiles (employment, income, emergency contacts) and multi-tenant lease agreements with custom rent due days, security deposits, and late-fee grace periods.
+- **Rent Ledger & Cashflow:** Idempotent 1-click monthly charge generation, period navigation, and payment allocation tracking across cash, check, ACH, and credit cards.
+- **Maintenance & Work Orders:** Priority-based work order boards (urgent, high, normal, low) with vendor dispatching, scheduled dates, and repair cost tracking.
+- **Vendor Directory:** Trade categorization (plumbers, electricians, HVAC, handymen, cleaning, general contractors) with quick contact integration.
+- **Executive Dashboard:** Live portfolio KPIs including occupancy rates, monthly rent collection breakdowns (collected, outstanding, overdue), open work orders, and 30-day lease expiration alerts.
 
-### Dashboard
-- **At-a-glance KPIs** — occupancy rate, active leases, outstanding rent, open work orders
-- **This month's rent** — collected, outstanding, overdue at a glance
-- **Open work orders** + **upcoming lease expirations** — what to act on this week
+### 🤖 Intelligent Features (Roadmap & Reference Synthesis)
+- **Conversational Copilot:** Natural language assistant for prospective renters to search listings by budget, commute, lifestyle, and amenities.
+- **AI Recommendation Engine:** Gemini-powered ranking with natural language "Why this matches" explanations.
+- **Multimodal Maintenance Triage:** Computer vision image triage categorizing damage photos and estimating severity.
+- **Grounded Lease Q&A (RAG):** Context-aware question answering grounded in active lease terms.
 
-### Properties & units
-- Property cards with type, address, color tag, occupancy snapshot
-- Per-property page with summary tiles, unit grid, and the property's open work orders
-- Units track bedrooms, bathrooms, square footage, market rent, and status (vacant / occupied / turnover / unavailable)
+---
 
-### Tenants
-- Searchable list showing each tenant's active unit and contact info
-- Detail page with active lease, contact, employer, income, emergency contact, lease history
+## 2. Technology Stack
 
-### Leases
-- One row per lease with tenant, property · unit, term, monthly rent, and status
-- Filters for active / upcoming / ended / all
-- Edit-in-dialog with start / end / rent / deposit / due day / late fee / status
+- **Frontend:** [React 19](https://react.dev/), [Vite](https://vitejs.dev/), [TypeScript](https://www.typescriptlang.org/)
+- **Styling & UI:** [Tailwind CSS v4](https://tailwindcss.com/), [Radix UI primitives](https://www.radix-ui.com/), [Lucide React](https://lucide.dev/)
+- **Backend / API:** [Hono v4](https://hono.dev/) running on [Cloudflare Workers](https://workers.cloudflare.com/) edge runtime
+- **Database:** [Cloudflare D1](https://developers.cloudflare.com/d1/) (Serverless SQLite with full ACID relational integrity)
+- **Package Manager:** [pnpm](https://pnpm.io/) workspace configuration
+- **AI Intelligence Layer:** [Google Gemini 2.0 Flash API](https://ai.google.dev/) (multimodal vision and structured JSON outputs)
 
-### Rent ledger
-- One charge per active lease per month, generated idempotently with one click
-- Period navigator (◀ / today / ▶) and totals: charged, collected, outstanding, overdue
-- Record payments by amount, method, date, and reference. Status auto-updates as payments roll in
-- Past payments visible per charge with one-click removal
+---
 
-### Maintenance
-- Work orders with title, description, priority (urgent / high / normal / low), and status (open / assigned / in progress / completed / cancelled)
-- Tabs: open / unassigned / assigned / in progress / completed / all
-- Link work orders to a property, unit, and vendor; track scheduled date and cost
+## 3. Quickstart & Local Setup
 
-### Vendors & policy
-- Vendor directory by category (plumber / electrician / HVAC / handyman / cleaning / landscaping / general)
-- Rent policy defaults: due day, late fee, grace days, currency
+### Prerequisites
+- **Node.js:** `>= 20.0.0` (Verified on Node `v24.20.0`)
+- **pnpm:** `>= 9.0.0` (Verified on pnpm `12.15.0`)
+- **Git:** `>= 2.40.0`
 
-## Stack
-
-- React 19 + Vite + TypeScript
-- Tailwind CSS v4 + shadcn/ui (Radix primitives)
-- Hono on Cloudflare Workers (D1-native — same code locally and in production)
-- `lucide-react` for icons
-- pushState URL routing
-
-## Develop
-
-```bash
+### Step 1: Install Dependencies
+```powershell
 pnpm install
-pnpm dev          # Vite at :5173, Wrangler at :8787 (D1 schema applied automatically)
-pnpm typecheck
-pnpm build
 ```
 
-The dev script applies `src/server/schema.sql` to the local D1 database, then runs Vite and Wrangler in parallel. The schema seeds 3 sample properties, 5 units, and 3 vendors so the app is usable on first boot.
+### Step 2: Initialize & Migrate Local D1 Database
+Apply the relational schema to the local Cloudflare D1 SQLite database:
+```powershell
+pnpm db:migrate
+```
+*Applies 25 DDL commands and automatically seeds initial sample properties, units, and vendors.*
 
-## Deploy
+### Step 3: Run the Development Server
+```powershell
+pnpm dev
+```
+Runs the Vite frontend and Wrangler Cloudflare Worker API concurrently:
+- **Frontend UI:** [http://localhost:5173](http://localhost:5173)
+- **Backend API:** [http://localhost:8787](http://localhost:8787)
+- **API Health Check:** [http://localhost:8787/api/health](http://localhost:8787/api/health)
 
-If you have the Clawnify CLI installed:
-
-```bash
-clawnify deploy
+### Verification Commands
+```powershell
+pnpm typecheck   # TypeScript compiler check (0 errors)
+pnpm build       # Production client bundle compilation (Vite)
 ```
 
-Or wire it up to Cloudflare Workers + D1 directly using the bindings in `wrangler.toml` (binding `DB`, database name `open-property-db`).
+For comprehensive PowerShell instructions and troubleshooting, see [docs/SETUP_AND_RUN.md](docs/SETUP_AND_RUN.md).
 
-## Project layout
+---
+
+## 4. Repository Structure
 
 ```
-src/
-  server/
-    index.ts        Hono routes for every entity
-    db.ts           D1 adapter (query / get / run)
-    schema.sql      Tables + seed data
-  client/
-    app.tsx         Shell + routing
-    components/
-      dashboard/    Portfolio + month-at-a-glance
-      properties/   List, property detail, property + unit dialogs
-      tenants/      List, tenant detail, tenant dialog
-      leases/       Leases page + lease dialog
-      rent/         Rent ledger + payment dialog
-      maintenance/  Work orders board + work-order dialog
-      settings/     Vendors + rent policy defaults
-      ui/           Vendored shadcn primitives
-    hooks/          use-router, use-app-state
-    lib/utils.ts    cn helper, color palette, date / money / period helpers
+OpenProperty/
+├── src/
+│   ├── client/                      # React 19 Single Page Application
+│   │   ├── components/              # UI components
+│   │   │   ├── dashboard/           # Portfolio KPIs & monthly cashflow
+│   │   │   ├── leases/              # Lease manager & modals
+│   │   │   ├── maintenance/         # Work orders board & vendor dispatch
+│   │   │   ├── properties/          # Properties & units management
+│   │   │   ├── rent/                # Monthly rent ledger & payment dialogs
+│   │   │   ├── settings/            # Vendor directory & late-fee policies
+│   │   │   ├── tenants/             # Tenant directory & profile views
+│   │   │   └── ui/                  # Radix UI and design system primitives
+│   │   ├── hooks/                   # use-router.ts (pushState), use-app-state.ts
+│   │   ├── lib/                     # Color tokens, date/currency utilities
+│   │   ├── api.ts                   # Fetch API wrapper
+│   │   ├── app.tsx                  # Top-level shell with Nestara AI navigation
+│   │   ├── main.tsx                 # React client entry point
+│   │   └── styles.css               # Tailwind CSS v4 design tokens
+│   └── server/                      # Cloudflare Workers & Hono backend
+│       ├── db.ts                    # D1 query execution wrapper
+│       ├── index.ts                 # 43 REST endpoints and auto-seeding logic
+│       └── schema.sql               # 11 D1 relational tables & index definitions
+├── docs/                            # Comprehensive System Documentation Suite
+│   ├── REPOSITORY_AUDIT.md          # In-depth audit of all repositories
+│   ├── FEATURE_MATRIX.md            # 22-feature comparison matrix & reuse decisions
+│   ├── ARCHITECTURE.md              # Current vs Target Architecture with diagrams
+│   ├── PROJECT_STATUS.md            # Authoritative progress tracking & validation
+│   ├── IMPLEMENTATION_ROADMAP.md    # Prioritized engineering roadmap
+│   ├── SETUP_AND_RUN.md             # PowerShell setup and run instructions
+│   ├── UPSTREAM_ATTRIBUTION.md      # Legal attribution, licenses, & compliance
+│   └── CHANGELOG.md                 # Chronological log of changes and verifications
+├── package.json                     # Scripts and dependencies
+├── tsconfig.json                    # TypeScript compiler configuration
+├── vite.config.ts                   # Vite build configuration
+├── wrangler.toml                    # Cloudflare Workers & D1 local database binding
+└── LICENSE                          # MIT License
 ```
 
-## What's intentionally not included
+---
 
-To keep this template self-hostable with no third-party SaaS dependencies and no public-facing endpoints, these features are out of scope:
+## 5. Documentation Index
 
-- Listing syndication to external rental sites
-- Real credit / background screening (placeholder application records only)
-- 2-way SMS, email blasts, automated texting
-- Online card / ACH payment processing
-- Public tenant or owner portals
+The complete architectural, compliance, and engineering documentation is maintained in the `docs/` directory:
 
-These can all be layered on top once you fork the template.
+- 🤝 [Developer Onboarding & Friend Handover](docs/FRIEND_HANDOFF.md) — Comprehensive guide for incoming developers and next steps.
+- 📋 [Repository Audit](docs/REPOSITORY_AUDIT.md) — Factual analysis of the primary repository and archive manifest.
+- 📊 [Feature Matrix](docs/FEATURE_MATRIX.md) — 22-feature comparison and clean-room implementation decisions.
+- 🏛️ [System Architecture](docs/ARCHITECTURE.md) — Baseline vs. Target architecture with Mermaid diagrams.
+- 📌 [Project Status](docs/PROJECT_STATUS.md) — Authoritative progress registry, empirical verification results, and completion metrics.
+- 🗺️ [Implementation Roadmap](docs/IMPLEMENTATION_ROADMAP.md) — Phased engineering tasks and acceptance criteria.
+- ⚙️ [Setup & Run Guide](docs/SETUP_AND_RUN.md) — Complete Windows PowerShell commands and troubleshooting.
+- ⚖️ [Upstream Attribution](docs/UPSTREAM_ATTRIBUTION.md) — Open-source licensing analysis and copyright attribution.
+- 📝 [Changelog](docs/CHANGELOG.md) — Record of modifications and verification steps.
 
-## License
+---
 
-MIT
+## 6. Upstream Attribution & License
+
+Nestara AI's primary application is derived from MIT-licensed OpenProperty, and the original copyright and license notice are preserved. The reviewed reference repositories were not incorporated as source code. Third-party dependency licenses and applicable notices must still be respected.
+
+- The original OpenProperty copyright notice and MIT license are preserved in full in [`LICENSE`](LICENSE).
+- All upstream rights are acknowledged. For comprehensive details regarding reference repositories, third-party dependency licensing, and clean-room implementation boundaries, refer to [docs/UPSTREAM_ATTRIBUTION.md](docs/UPSTREAM_ATTRIBUTION.md).
+
+```
+MIT License
+Copyright (c) 2026 Clawnify
+```

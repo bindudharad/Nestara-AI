@@ -1,6 +1,6 @@
 {
-  "name": "OpenProperty",
-  "description": "Open-source property management software — a self-hosted, cloud-based alternative to TenantCloud, AppFolio, Buildium, and Propertyware for landlords and small property managers. Rental property management with properties and units, tenants and leases, rent collection and ledger, work orders and maintenance, and a vendor directory.",
+  "name": "Nestara AI",
+  "description": "Nestara AI — Intelligent Property & Rental Management System. Rental property management with properties and units, tenants and leases, rent collection and ledger, work orders and maintenance, and a vendor directory.",
   "framework": "react+hono",
   "files": [
     "src/server/index.ts",
@@ -15,7 +15,7 @@
     "src/client/lib/utils.ts",
     "src/client/hooks/use-router.ts",
     "src/client/hooks/use-app-state.ts",
-    "src/client/components/sidebar.tsx",
+
     "src/client/components/error-banner.tsx",
     "src/client/components/dashboard/dashboard-page.tsx",
     "src/client/components/properties/properties-list.tsx",
